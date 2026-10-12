@@ -20,7 +20,7 @@ function get_ant_position(grid_ant_position: number[][]) {
 }
 
 function rotate_ant(ant_position: number[], cell_color: number) {
-    if (cell_color = 0) {
+    if (cell_color == 0) {
         if (grid_ant_position[ant_position[0]][ant_position[1]] != 4) {
             grid_ant_position[ant_position[0]][ant_position[1]] += 1
         } else
@@ -35,9 +35,9 @@ function rotate_ant(ant_position: number[], cell_color: number) {
 }
 
 function color_cell(ant_position: number[]) {
-    if (grid_color[ant_position[0]][ant_position[1]] = 0) {
+    if (grid_color[ant_position[0]][ant_position[1]] == 0) {
         grid_color[ant_position[0]][ant_position[1]] = 1
-    } else if (grid_color[ant_position[0]][ant_position[1]] = 1) {
+    } else if (grid_color[ant_position[0]][ant_position[1]] == 1) {
         grid_color[ant_position[0]][ant_position[1]] = 0
     }
 }

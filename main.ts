@@ -12,10 +12,10 @@ export let grid_ant_position: number[][] = grid_filler();
 grid_ant_position[50][50] = 1;
 
 async function run() {
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 100000; i++) {
         move_algo();
         display_grid(canvas);
-        await sleep(10); 
+        await sleep(1); 
     }
 }
 
