@@ -1,4 +1,4 @@
-import { grid_ant_position, grid_color } from "../main.ts";
+import { grid_ants_position, grid_color } from "../main.ts";
 
 export function display_grid(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext("2d");
@@ -10,7 +10,7 @@ export function display_grid(canvas: HTMLCanvasElement) {
 
     for (let i = 0; i < 100; i++) {
         for (let j = 0; j < 100; j++) {
-            const antDir = grid_ant_position[i][j];
+            const antDir = grid_ants_position[i][j];
             const color = grid_color[i][j];
 
             if (antDir !== 0) {
