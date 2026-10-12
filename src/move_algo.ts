@@ -8,7 +8,7 @@ export function move_ant() {
 
     } else {
         // Black
-        
+
     }
 
 }
@@ -16,7 +16,7 @@ export function move_ant() {
 function get_ant_position(grid_ant_position: number[][]) {
     for (let i = 0; i < 100; i++ ) {
         for (let j = 0; j < 100; j++ ) {
-            if (grid_ant_position[i][j] = 1) {
+            if (grid_ant_position[i][j] != 0) {
                 return [i, j];
             }
         }
