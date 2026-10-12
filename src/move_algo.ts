@@ -1,7 +1,9 @@
-import { grid_ant_position, grid_color } from "../main.ts";
+import { grid_ant_position, grid_color, step_counter } from "../main.ts";
 
 export function move_algo() {
     let ant_position: number[] = get_ant_position(grid_ant_position);
+
+    custom_rule(ant_position);
     
     rotate_ant(ant_position, grid_color[ant_position[0]][ant_position[1]]) // 0 = Left, 1 = Right
     color_cell(ant_position)
@@ -75,4 +77,14 @@ function move_forward_ant(ant_position: number[]) {
     ant_position[1] = col;
 
     grid_ant_position[ant_position[0]][ant_position[1]] = direction;
+}
+
+function getRandomIntInclusive(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function custom_rule(ant_position: number[]) { // Randomly move the ant another time
+    if (step_counter % getRandomIntInclusive(11, 97) == 0) { 
+        move_forward_ant(ant_position); 
+    }
 }
