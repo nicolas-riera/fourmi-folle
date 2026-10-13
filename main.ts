@@ -9,10 +9,8 @@ const counterElement = document.getElementById("counter") as HTMLElement;
 
 export let grid_color: number[][] = grid_filler(); // 0 = White, 1 = Black
 
-export let grid_ants_position: number[][] = grid_filler(); // 0 = Up, 1 = Right, 2 = Down, 3 = Left
+export let grid_ants_position: number[][] = grid_filler(); // 1 = Up, 2 = Right, 3 = Down, 4 = Left
 place_ants()
-
-grid_ants_position[50][50] = 1; 
 
 export let step_counter = 0;
 

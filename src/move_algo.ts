@@ -76,7 +76,7 @@ function move_forward_ant(ant_position: number[]) {
         col = 0;
     }
 
-    if (grid_ants_position[row][col] != 0) {
+    if (grid_ants_position[row][col] != 0) { // Check if there's already an ant or not
         let current_row = ant_position[0];
         let current_col = ant_position[1];
         rotate_ant([current_row, current_col], grid_color[current_row][current_col]); 
