@@ -1,11 +1,12 @@
 import { display_grid } from "./src/display_grid.ts";
-import { grid_filler, place_ants } from "./src/tools.ts";
+import { grid_filler, place_ants, getAntsStatsPercentage } from "./src/tools.ts";
 import { move_algo } from "./src/move_algo.ts";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const canvas = document.getElementById("gridCanvas") as HTMLCanvasElement;
 const counterElement = document.getElementById("counter") as HTMLElement;
+const antStatsElement = document.getElementById("antStats") as HTMLElement;
 
 export let grid_color: number[][] = grid_filler(); // 0 = White, 1 = Black
 
@@ -25,6 +26,10 @@ async function run() {
 
         if (counterElement) {
             counterElement.textContent = step_counter.toString();
+        }
+
+        if (antStatsElement) {
+            antStatsElement.innerHTML = getAntsStatsPercentage(grid_color);
         }
         
         await sleep(1); 
