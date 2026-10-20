@@ -14,14 +14,37 @@ export function display_grid(canvas: HTMLCanvasElement) {
             const color = grid_color[i][j];
 
             if (antDir !== 0) {
-                ctx.fillStyle = "#ff4757"; // Ant
-            } else if (color === 1) {
-                ctx.fillStyle = "#2f3542"; // Black
-            } else {
-                ctx.fillStyle = "#f1f2f6"; // White
+                ctx.fillStyle = "#000000"; // Ant
+            } else  {
+                ctx.fillStyle = selectColor(color);
             }
 
             ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
         }
+    }
+}
+
+function selectColor(color: number) {
+    switch (color) {
+        case 0:
+            return "#ffffff"; // White 
+        case 1:
+            return "#ff0000"; // Red 
+        case 2:
+            return "#0000ff"; // Blue
+        case 3:
+            return "#00ff00"; // Green 
+        case 4:
+            return "#ffff00"; // Yellow 
+        case 5:
+            return "#ff00ff"; // Magenta 
+        case 6:
+            return "#00ffff"; // Cyan 
+        case 7:
+            return "#ff8000"; // Orange 
+        case 8:
+            return "#8000ff"; // Purple
+        default:
+            return "#000000"; // Black 
     }
 }
