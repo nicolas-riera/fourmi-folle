@@ -37,6 +37,7 @@ export function getAntsStatsPercentage(grid_color: number[][]): string {
         }
     }
 
+    // Ant with the most colored cells
     let maxId = -1;
     let maxCount = -1;
 
