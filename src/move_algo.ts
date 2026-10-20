@@ -26,30 +26,38 @@ function get_ants_position(grid_ant_position: number[][]) {
 }
 
 function rotate_ant(ant_position: number[], cell_color: number) {
+    const val = grid_ants_position[ant_position[0]][ant_position[1]];
+
+    const base = Math.floor((val - 1) / 4) * 4 + 1;
+    const max = base + 3; 
+
     if (cell_color == 0) {
-        if (grid_ants_position[ant_position[0]][ant_position[1]] != 4) {
-            grid_ants_position[ant_position[0]][ant_position[1]] += 1
-        } else
-            grid_ants_position[ant_position[0]][ant_position[1]] = 1
+        if (val != max) {
+            grid_ants_position[ant_position[0]][ant_position[1]] += 1;
+        } else {
+            grid_ants_position[ant_position[0]][ant_position[1]] = base;
+        }
     } else {
-        if (grid_ants_position[ant_position[0]][ant_position[1]] != 1) {
-            grid_ants_position[ant_position[0]][ant_position[1]] -= 1
-        } else
-            grid_ants_position[ant_position[0]][ant_position[1]] = 4
+        if (val != base) {
+            grid_ants_position[ant_position[0]][ant_position[1]] -= 1;
+        } else {
+            grid_ants_position[ant_position[0]][ant_position[1]] = max;
+        }
     }
     
 }
 
 function color_cell(ant_position: number[]) {
     if (grid_color[ant_position[0]][ant_position[1]] == 0) {
-        grid_color[ant_position[0]][ant_position[1]] = 1
-    } else if (grid_color[ant_position[0]][ant_position[1]] == 1) {
+        grid_color[ant_position[0]][ant_position[1]] = Math.floor((grid_ants_position[ant_position[0]][ant_position[1]] - 1) / 4) + 1;
+    } else {
         grid_color[ant_position[0]][ant_position[1]] = 0
     }
 }
 
 function move_forward_ant(ant_position: number[]) {
-    let direction = grid_ants_position[ant_position[0]][ant_position[1]];
+    let storedDirection = grid_ants_position[ant_position[0]][ant_position[1]];
+    let direction = ((storedDirection - 1) % 4) + 1;
 
     let row = ant_position[0];
     let col = ant_position[1];
@@ -88,7 +96,7 @@ function move_forward_ant(ant_position: number[]) {
     ant_position[0] = row;
     ant_position[1] = col;
 
-    grid_ants_position[ant_position[0]][ant_position[1]] = direction;
+    grid_ants_position[ant_position[0]][ant_position[1]] = storedDirection;
 }
 
 function custom_rule(ant_position: number[]) { // Randomly move the ant another time
