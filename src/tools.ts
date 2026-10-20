@@ -54,7 +54,8 @@ export function getAntsStatsPercentage(grid_color: number[][]): string {
 
     for (const antId of sortedIds) {
         const percentage = ((counts[antId] / totalCells) * 100).toFixed(2);
-        const text = `Ants ${antId} : ${percentage}%`;
+        const colorHex = selectColor(antId);
+        const text = `<span style="color: ${colorHex};">■</span> Ant ${antId} : ${percentage}%`;
 
         if (antId === maxId) {
             results.push(`<b>${text}</b>`);
@@ -64,4 +65,29 @@ export function getAntsStatsPercentage(grid_color: number[][]): string {
     }
 
     return results.join(", ");
+}
+
+export function selectColor(color: number) {
+    switch (color) {
+        case 0:
+            return "#ffffff"; // White 
+        case 1:
+            return "#ff0000"; // Red 
+        case 2:
+            return "#0000ff"; // Blue
+        case 3:
+            return "#00ff00"; // Green 
+        case 4:
+            return "#ffff00"; // Yellow 
+        case 5:
+            return "#ff00ff"; // Magenta 
+        case 6:
+            return "#00ffff"; // Cyan 
+        case 7:
+            return "#ff8000"; // Orange 
+        case 8:
+            return "#8000ff"; // Purple
+        default:
+            return "#000000"; // Black 
+    }
 }

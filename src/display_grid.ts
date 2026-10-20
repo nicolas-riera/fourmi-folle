@@ -1,4 +1,5 @@
 import { grid_ants_position, grid_color } from "../main.ts";
+import { selectColor } from "./tools.ts";
 
 export function display_grid(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext("2d");
@@ -21,30 +22,5 @@ export function display_grid(canvas: HTMLCanvasElement) {
 
             ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
         }
-    }
-}
-
-function selectColor(color: number) {
-    switch (color) {
-        case 0:
-            return "#ffffff"; // White 
-        case 1:
-            return "#ff0000"; // Red 
-        case 2:
-            return "#0000ff"; // Blue
-        case 3:
-            return "#00ff00"; // Green 
-        case 4:
-            return "#ffff00"; // Yellow 
-        case 5:
-            return "#ff00ff"; // Magenta 
-        case 6:
-            return "#00ffff"; // Cyan 
-        case 7:
-            return "#ff8000"; // Orange 
-        case 8:
-            return "#8000ff"; // Purple
-        default:
-            return "#000000"; // Black 
     }
 }
