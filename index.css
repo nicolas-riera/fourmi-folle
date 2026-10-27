@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'RobotoVariable';
+  src: url('assets/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+body {
+    font-family: 'RobotoVariable', sans-serif;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    text-align: center;
+}
+
+#containerCanvas {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#gridCanvas {
+    border-radius: 5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #containerCanvas #gridCanvas {
+        width: 80%;
+    }
+    #footerSection {
+        margin: 0 30px;
+    }
+}

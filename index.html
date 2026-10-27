@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fourmi Folle</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <canvas id="gridCanvas" width="500" height="500" style="border: 1px solid black;"></canvas>
-    <div>
+    <h1>Fourmi Folle</h1>
+
+    <section id="containerCanvas">
+        <canvas id="gridCanvas" width="500" height="500" style="border: 1px solid black;"></canvas>
+    </section>
+
+    <section id="footerSection">
         <span>Steps: </span><span id="counter">0</span>
         <p id="antStats"></p>
-    </div>
+    </section>
 
     <script type="module" src="./main.ts"></script>
 </body>
